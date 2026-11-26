@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عقد تقديم خدمات ومواكبة | CONTRAT DE PRESTATION</title>
+    <style>
+        /* ========== RESET & VARIABLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0a1e3c;
+            --navy-light: #122b4f;
+            --gold: #c9a84c;
+            --gold-light: #e8d48b;
+            --gold-dark: #a8872e;
+            --white: #ffffff;
+            --off-white: #f8f6f1;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
+            --shadow: 0 4px 20px rgba(10, 30, 60, 0.15);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+            background: var(--off-white);
+            color: var(--navy);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ========== HEADER ========== */
+        .app-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-bottom: 4px solid var(--gold);
+            box-shadow: var(--shadow);
+        }
+
+        .app-header .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .app-header .brand .logo {
+            width: 48px;
+            height: 48px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .app-header h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .app-header h1 small {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--gold-light);
+            letter-spacing: 0.5px;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-toggle button {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold-light);
+            padding: 8px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .lang-toggle button.active {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .lang-toggle button:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* ========== LAYOUT ========== */
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 28px 20px 60px;
+        }
+
+        .disclaimer {
+            background: #fff3cd;
+            border-right: 4px solid #ffc107;
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+
+        .disclaimer strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== CARDS / FORM SECTIONS ========== */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--light-gray);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: var(--white);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .card-header .num {
+            background: var(--gold);
+            color: var(--navy);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .card-body {
+            padding: 22px 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            color: var(--navy);
+        }
+
+        .form-group label .required {
+            color: #dc3545;
+            margin-right: 2px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: border 0.3s, box-shadow 0.3s;
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== ACTION BUTTONS ========== */
+        .actions-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+            padding: 20px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--light-gray);
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy);
+            box-shadow: 0 4px 14px rgba(201, 168, 76, 0.35);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.5);
+        }
+
+        .btn-navy {
+            background: var(--navy);
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-navy:hover {
+            background: var(--navy-light);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .btn-outline:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-danger {
+            background: transparent;
+            color: #dc3545;
+            border: 2px solid #dc3545;
+        }
+
+        .btn-danger:hover {
+            background: #dc3545;
+            color: var(--white);
+        }
+
+        /* ========== CONTRACT PREVIEW ========== */
+        .contract-preview-wrapper {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--light-gray);
+            margin-top: 28px;
+            overflow: hidden;
+        }
+
+        .preview-toolbar {
+            background: var(--navy);
+            color: var(--white);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .preview-toolbar .title {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-toolbar .badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .preview-actions .btn {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+        }
+
+        .contract-content {
+            padding: 40px 45px;
+            background: var(--white);
+            min-height: 400px;
+            font-size: 0.92rem;
+            line-height: 1.9;
+        }
+
+        .contract-content[contenteditable="true"]:focus {
+            outline: 2px dashed var(--gold);
+            outline-offset: 4px;
+        }
+
+        .contract-content .contract-title {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .contract-content .contract-title h2 {
+            font-size: 1.35rem;
+            color: var(--navy);
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .contract-content .contract-title h3 {
+            font-size: 1.05rem;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .contract-content .contract-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            margin: 14px auto 24px;
+            border-radius: 2px;
+        }
+
+        .contract-content .parties-section {
+            background: var(--off-white);
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 24px;
+        }
+
+        .contract-content .parties-section .party {
+            margin-bottom: 12px;
+        }
+
+        .contract-content .parties-section .party:last-child {
+            margin-bottom: 0;
+        }
+
+        .contract-content .parties-section .party strong {
+            color: var(--navy);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .contract-content .parties-section .party p {
+            margin: 2px 0;
+            font-size: 0.88rem;
+            color: #374151;
+        }
+
+        .contract-content .article {
+            margin-bottom: 18px;
+        }
+
+        .contract-content .article h4 {
+            color: var(--navy);
+            font-size: 0.98rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            border-right: 3px solid var(--gold);
+            padding-right: 10px;
+            background: linear-gradient(90deg, rgba(201, 168, 76, 0.1), transparent);
+            padding: 6px 10px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .contract-content .article p {
+            font-size: 0.88rem;
+            color: #1f2937;
+            text-align: justify;
+            margin-bottom: 4px;
+            padding-right: 13px;
+        }
+
+        .contract-content .article ul {
+            padding-right: 30px;
+            margin: 6px 0;
+        }
+
+        .contract-content .article ul li {
+            font-size: 0.88rem;
+            margin-bottom: 3px;
+        }
+
+        .contract-content .highlight-box {
+            background: rgba(201, 168, 76, 0.12);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 14px 0;
+            font-size: 0.88rem;
+        }
+
+        .contract-content .highlight-box strong {
+            color: var(--gold-dark);
+        }
+
+        .contract-content .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px dashed var(--light-gray);
+        }
+
+        .contract-content .signatures .sig-block {
+            text-align: center;
+        }
+
+        .contract-content .signatures .sig-block .sig-label {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 50px;
+            font-size: 0.9rem;
+        }
+
+        .contract-content .signatures .sig-block .sig-line {
+            border-top: 1.5px solid var(--navy);
+            padding-top: 8px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* ========== EMPTY STATE ========== */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+        }
+
+        .empty-state .icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            opacity: 0.4;
+        }
+
+        .empty-state p {
+            font-size: 0.95rem;
+        }
+
+        /* ========== PRINT STYLES ========== */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .app-header,
+            .disclaimer,
+            .grid-layout,
+            .actions-bar,
+            .preview-toolbar,
+            .app-footer {
+                display: none !important;
+            }
+
+            .app-container {
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .contract-preview-wrapper {
+                box-shadow: none;
+                border: none;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .contract-content {
+                padding: 15mm 18mm;
+                font-size: 10.5pt;
+                line-height: 1.8;
+            }
+
+            .contract-content[contenteditable="true"]:focus {
+                outline: none;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            .contract-content .signatures .sig-block .sig-label {
+                margin-bottom: 40px;
+            }
+        }
+
+        /* ========== FOOTER ========== */
+        .app-footer {
+            text-align: center;
+            padding: 28px 20px;
+            color: var(--gray);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 40px;
+        }
+
+        .app-footer strong {
+            color: var(--navy);
+        }
+
+        /* ========== TOAST ========== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--navy);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--gold);
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.4s;
+            z-index: 9999;
+            font-size: 0.9rem;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* ========== HIDDEN ========== */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo">⚖</div>
+            <h1>
+                <span data-lang="ar">منصة العقود القانونية</span>
+                <span data-lang="fr" class="hidden">Plateforme de Contrats</span>
+                <small data-lang="ar">عقد تقديم خدمات ومواكبة</small>
+                <small data-lang="fr" class="hidden">Contrat de Prestation de Services</small>
+            </h1>
+        </div>
+        <div class="lang-toggle">
+            <button id="btnLangAr" class="active" onclick="setLang('ar')">العربية</button>
+            <button id="btnLangFr" onclick="setLang('fr')">Français</button>
+        </div>
+    </header>
+
+    <div class="app-container">
+
+        <!-- ========== DISCLAIMER ========== -->
+        <div class="disclaimer">
+            <strong data-lang="ar">⚠ تنبيه قانوني هام</strong>
+            <strong data-lang="fr" class="hidden">⚠ Avertissement juridique important</strong>
+            <span data-lang="ar">هذا النموذج مشروع أولي يجب مراجعته من قبل محامٍ أو مستشار قانوني مؤهل قبل التوقيع. لا يُعتبر التطبيق بديلاً عن الاستشارة القانونية المتخصصة.</span>
+            <span data-lang="fr" class="hidden">Ce modèle est un projet préliminaire qui doit être révisé par un avocat ou un conseiller juridique qualifié avant signature. L'application ne remplace pas une consultation juridique spécialisée.</span>
+        </div>
+
+        <!-- ========== FORM GRID ========== -->
+        <div class="grid-layout">
+
+            <!-- ===== CARD 1: PARTIES ===== -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="num">1</span>
+                    <span data-lang="ar">بيانات الطرفين</span>
+                    <span data-lang="fr" class="hidden">Informations des Parties</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label data-lang="ar">الاسم الكامل لصاحب المشروع (Client) <span class="required">*</span></label>
+                        <label data-lang="fr" class="hidden">Nom complet du Client <span class="required">*</span></label>
+                        <input type="text" id="clientName" placeholder="مثال: محمد العلوي">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-lang="ar">رقم CIN أو Passport <span class="required">*</span></label>
+                            <label data-lang="fr" class="hidden">N° CIN ou Passeport <span class="required">*</span></label>
+                            <input type="text" id="clientCIN" placeholder="AB123456">
+                        </div>
+                        <div class="form-group">
+                            <label data-lang="ar">العنوان <span class="required">*</span></label>
+                            <label data-lang="fr" class="hidden">Adresse <span class="required">*</span></label>
+                            <input type="text" id="clientAddress" placeholder="الدار البيضاء...">
+                        </div>
+                    </div>
+                    <hr style="border:none;border-top:1px dashed var(--light-gray);margin:18px 0;">
+                    <div class="form-group">
+                        <label data-lang="ar">الاسم الكامل لمقدم الخدمات (Prestataire) <span class="required">*</span></label>
+                        <label data-lang="fr" class="hidden">Nom complet du Prestataire <span class="required">*</span></label>
+                        <input type="text" id="providerName" placeholder="مثال: شركة المواكبة ش.م.م">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-lang="ar">رقم CIN <span class="required">*</span></label>
+                            <label data-lang="fr" class="hidden">N° CIN <span class="required">*</span></label>
+                            <input type="text" id="providerCIN" placeholder="CD789012">
+                        </div>
+                        <div class="form-group">
+                            <label data-lang="ar">العنوان <span class="required">*</span></label>
+                            <label data-lang="fr" class="hidden">Adresse <span class="required">*</span></label>
+                            <input type="text" id="providerAddress" placeholder="الرباط...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="ar">تاريخ تحرير العقد <span class="required">*</span></label>
+                        <label data-lang="fr" class="hidden">Date de rédaction du contrat <span class="required">*</span></label>
+                        <input type="date" id="contractDate">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CARD 2: COMPANY ===== -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="num">2</span>
+                    <span data-lang="ar">بيانات الشركة</span>
+                    <span data-lang="fr" class="hidden">Informations de la Société</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label data-lang="ar">الاسم التجاري <span class="required">*</span></label>
+                        <label data-lang="fr" class="hidden">Dénomination commerciale <span class="required">*</span></label>
+                        <input type="text" id="companyName" placeholder="مثال: ATLAS TRADE SARL AU">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-lang="ar">الشكل القانوني</label>
+                            <label data-lang="fr" class="hidden">Forme juridique</label>
+                            <input type="text" id="companyLegal" value="SARL AU" readonly style="background:#f3f4f6;">
+                        </div>
+                        <div class="form-group">
+                            <label data-lang="ar">مقر الشركة <span class="required">*</span></label>
+                            <label data-lang="fr" class="hidden">Siège social <span class="required">*</span></label>
+                            <input type="text" id="companyAddress" placeholder="الدار البيضاء...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="ar">النشاط الرئيسي <span class="required">*</span></label>
+                        <label data-lang="fr" class="hidden">Activité principale <span class="required">*</span></label>
+                        <input type="text" id="companyMainActivity" placeholder="التجارة الدولية...">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="ar">الأنشطة الثانوية</label>
+                        <label data-lang="fr" class="hidden">Activités secondaires</label>
+                        <textarea id="companySecondaryActivity" placeholder="الاستيراد، التصدير، الوساطة..."></textarea>
+                    </div>
+                    <div class="highlight-box" style="margin-top:10px;">
+                        <span data-lang="ar"><strong>ملاحظة:</strong> الشركة مملوكة بنسبة 100% لصاحب المشروع (Associé Unique)، وهو نفسه المسير القانوني (Gérant).</span>
+                        <span data-lang="fr" class="hidden"><strong>Note :</strong> La société est détenue à 100% par le Client (Associé Unique), qui est également le Gérant légal.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CARD 3: FINANCIAL ===== -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="num">3</span>
+                    <span data-lang="ar">المقابل المالي</span>
+                    <span data-lang="fr" class="hidden">Contrepartie Financière</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-lang="ar">نوع الأجر</label>
+                            <label data-lang="fr" class="hidden">Type de rémunération</label>
+                            <select id="feeType">
+                                <option value="monthly" data-lang="ar">أجر شهري ثابت</option>
+                                <option value="perTask" data-lang="ar">أجر عن كل مهمة</option>
+                                <option value="perTransaction" data-lang="ar">أجر عن كل عملية تجارية</option>
+                                <option value="monthly" data-lang="fr" class="hidden">Salaire mensuel fixe</option>
+                                <option value="perTask" data-lang="fr" class="hidden">Rémunération par mission</option>
+                                <option value="perTransaction" data-lang="fr" class="hidden">Rémunération par transaction</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-lang="ar">المبلغ (درهم)</label>
+                            <label data-lang="fr" class="hidden">Montant (MAD)</label>
+                            <input type="text" id="feeAmount" placeholder="5000">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-lang="ar">طريقة الأداء</label>
+                            <label data-lang="fr" class="hidden">Mode de paiement</label>
+                            <select id="paymentMethod">
+                                <option value="bank" data-lang="ar">تحويل بنكي</option>
+                                <option value="cash" data-lang="ar">نقداً</option>
+                                <option value="check" data-lang="ar">شيك</option>
+                                <option value="bank" data-lang="fr" class="hidden">Virement bancaire</option>
+                                <option value="cash" data-lang="fr" class="hidden">Espèces</option>
+                                <option value="check" data-lang="fr" class="hidden">Chèque</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-lang="ar">تاريخ الأداء</label>
+                            <label data-lang="fr" class="hidden">Date de paiement</label>
+                            <input type="date" id="paymentDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="ar">مصاريف التنقل والخدمات الإضافية</label>
+                        <label data-lang="fr" class="hidden">Frais de déplacement et services supplémentaires</label>
+                        <textarea id="extraCosts" placeholder="يُحدد بالاتفاق..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CARD 4: INFO / LEGAL ===== -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="num">4</span>
+                    <span data-lang="ar">معلومات قانونية تكميلية</span>
+                    <span data-lang="fr" class="hidden">Informations Juridiques Complémentaires</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label data-lang="ar">مدة العقد</label>
+                        <label data-lang="fr" class="hidden">Durée du contrat</label>
+                        <input type="text" id="contractDuration" placeholder="12 شهراً قابلة للتجديد">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="ar">مكان التوقيع</label>
+                        <label data-lang="fr" class="hidden">Lieu de signature</label>
+                        <input type="text" id="signaturePlace" placeholder="الدار البيضاء">
+                    </div>
+                    <div class="highlight-box">
+                        <span data-lang="ar"><strong>الحماية القانونية:</strong> صاحب المشروع هو Associé Unique وGérant. مقدم الخدمات ليس شريكاً ولا مالكاً لحصص الشركة، ولا يتحمل ديونها، ولا يحق له التوقيع باسمها أو التصرف في حساباتها دون تفويض قانوني.</span>
+                        <span data-lang="fr" class="hidden"><strong>Protection juridique :</strong> Le Client est l'Associé Unique et le Gérant. Le Prestataire n'est ni associé ni propriétaire de parts sociales, ne supporte pas les dettes de la société, et ne peut signer en son nom ou gérer ses comptes sans délégation légale.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /grid-layout -->
+
+        <!-- ========== ACTIONS BAR ========== -->
+        <div class="actions-bar">
+            <button class="btn btn-primary" onclick="generateContract()">
+                <span data-lang="ar">⚙ توليد العقد</span>
+                <span data-lang="fr" class="hidden">⚙ Générer le contrat</span>
+            </button>
+            <button class="btn btn-navy" onclick="downloadPDF()">
+                <span data-lang="ar">📄 تحميل PDF</span>
+                <span data-lang="fr" class="hidden">📄 Télécharger PDF</span>
+            </button>
+            <button class="btn btn-outline" onclick="printContract()">
+                <span data-lang="ar">🖨 طباعة A4</span>
+                <span data-lang="fr" class="hidden">🖨 Imprimer A4</span>
+            </button>
+            <button class="btn btn-outline" onclick="downloadHTML()">
+                <span data-lang="ar">💾 تحميل HTML</span>
+                <span data-lang="fr" class="hidden">💾 Télécharger HTML</span>
+            </button>
+            <button class="btn btn-danger" onclick="resetForm()">
+                <span data-lang="ar">🔄 إعادة تعيين</span>
+                <span data-lang="fr" class="hidden">🔄 Réinitialiser</span>
+            </button>
+        </div>
+
+        <!-- ========== CONTRACT PREVIEW ========== -->
+        <div class="contract-preview-wrapper" id="contractWrapper">
+            <div class="preview-toolbar">
+                <div class="title">
+                    <span data-lang="ar">📋 معاينة العقد النهائي</span>
+                    <span data-lang="fr" class="hidden">📋 Aperçu du contrat final</span>
+                    <span class="badge" data-lang="ar">قابل للتعديل</span>
+                    <span class="badge" data-lang="fr" class="hidden">Modifiable</span>
+                </div>
+                <div class="preview-actions">
+                    <button class="btn btn-primary" onclick="toggleEdit()">
+                        <span data-lang="ar">✏ تعديل النص</span>
+                        <span data-lang="fr" class="hidden">✏ Modifier le texte</span>
+                    </button>
+                </div>
+            </div>
+            <div class="contract-content" id="contractContent">
+                <div class="empty-state">
+                    <div class="icon">📝</div>
+                    <p data-lang="ar">املأ بيانات النموذج ثم اضغط على "توليد العقد" لعرض المعاينة هنا.</p>
+                    <p data-lang="fr" class="hidden">Remplissez le formulaire puis cliquez sur "Générer le contrat" pour afficher l'aperçu ici.</p>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /app-container -->
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="app-footer">
+        <p data-lang="ar">منصة العقود القانونية المغربية — <strong>عقد تقديم خدمات ومواكبة</strong> | لا تُرسل البيانات إلى أي خادم</p>
+        <p data-lang="fr" class="hidden">Plateforme de Contrats Juridiques Marocains — <strong>Contrat de Prestation de Services</strong> | Les données ne sont envoyées à aucun serveur</p>
+    </footer>
+
+    <!-- ========== TOAST ========== -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        /* ============================================================
+           GLOBAL STATE
+           ============================================================ */
+        let currentLang = 'ar';
+        let isEditing = false;
+        let generatedContractHTML = '';
+
+        /* ============================================================
+           LANGUAGE SWITCHING
+           ============================================================ */
+        function setLang(lang) {
+            currentLang = lang;
+
+            // Toggle buttons
+            document.getElementById('btnLangAr').classList.toggle('active', lang === 'ar');
+            document.getElementById('btnLangFr').classList.toggle('active', lang === 'fr');
+
+            // HTML dir
+            document.documentElement.lang = lang === 'ar' ? 'ar' : 'fr';
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Show/hide elements by data-lang
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.toggle('hidden', el.getAttribute('data-lang') !== lang);
+            });
+
+            // Rebuild contract if already generated
+            if (generatedContractHTML) {
+                rebuildContractForLang();
+            }
+
+            showToast(lang === 'ar' ? 'تم التغيير إلى العربية' : 'Passé au français');
+        }
+
+        /* ============================================================
+           UTILITIES
+           ============================================================ */
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function esc(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>"]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                if (m === '"') return '&quot;';
+                return m;
+            });
+        }
+
+        function getVal(id) {
+            return document.getElementById(id)?.value?.trim() || '';
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '—';
+            const d = new Date(dateStr);
+            if (isNaN(d)) return dateStr;
+            return d.toLocaleDateString(currentLang === 'ar' ? 'ar-MA' : 'fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        function getFeeTypeLabel() {
+            const sel = document.getElementById('feeType');
+            const opt = sel.options[sel.selectedIndex];
+            return opt ? opt.textContent : '—';
+        }
+
+        function getPaymentLabel() {
+            const sel = document.getElementById('paymentMethod');
+            const opt = sel.options[sel.selectedIndex];
+            return opt ? opt.textContent : '—';
+        }
+
+        /* ============================================================
+           CONTRACT GENERATION
+           ============================================================ */
+        function generateContract() {
+            // Validation
+            const required = [
+                { id: 'clientName', label: 'اسم صاحب المشروع / Nom du Client' },
+                { id: 'clientCIN', label: 'رقم CIN للعميل / N° CIN du Client' },
+                { id: 'clientAddress', label: 'عنوان العميل / Adresse du Client' },
+                { id: 'providerName', label: 'اسم مقدم الخدمات / Nom du Prestataire' },
+                { id: 'providerCIN', label: 'رقم CIN لمقدم الخدمات / N° CIN du Prestataire' },
+                { id: 'providerAddress', label: 'عنوان مقدم الخدمات / Adresse du Prestataire' },
+                { id: 'contractDate', label: 'تاريخ العقد / Date du contrat' },
+                { id: 'companyName', label: 'الاسم التجاري / Dénomination' },
+                { id: 'companyAddress', label: 'مقر الشركة / Siège social' },
+                { id: 'companyMainActivity', label: 'النشاط الرئيسي / Activité principale' }
+            ];
+
+            for (const field of required) {
+                if (!getVal(field.id)) {
+                    showToast('⚠ ' + field.label + ' — ' + (currentLang === 'ar' ? 'مطلوب' : 'requis'));
+                    document.getElementById(field.id)?.focus();
+                    return;
+                }
+            }
+
+            // Build contract
+            generatedContractHTML = buildContractHTML();
+            const container = document.getElementById('contractContent');
+            container.innerHTML = generatedContractHTML;
+            container.setAttribute('contenteditable', 'false');
+            isEditing = false;
+
+            showToast(currentLang === 'ar' ? '✅ تم توليد العقد بنجاح' : '✅ Contrat généré avec succès');
+
+            // Scroll to preview
+            document.getElementById('contractWrapper').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function buildContractHTML() {
+            const clientName = esc(getVal('clientName'));
+            const clientCIN = esc(getVal('clientCIN'));
+            const clientAddress = esc(getVal('clientAddress'));
+            const providerName = esc(getVal('providerName'));
+            const providerCIN = esc(getVal('providerCIN'));
+            const providerAddress = esc(getVal('providerAddress'));
+            const contractDate = formatDate(getVal('contractDate'));
+            const companyName = esc(getVal('companyName'));
+            const companyAddress = esc(getVal('companyAddress'));
+            const companyMainActivity = esc(getVal('companyMainActivity'));
+            const companySecondaryActivity = esc(getVal('companySecondaryActivity')) || (currentLang === 'ar' ? 'لا توجد' : 'Néant');
+            const feeTypeLabel = esc(getFeeTypeLabel());
+            const feeAmount = esc(getVal('feeAmount')) || '—';
+            const paymentMethod = esc(getPaymentLabel());
+            const paymentDate = getVal('paymentDate') ? formatDate(getVal('paymentDate')) : '—';
+            const extraCosts = esc(getVal('extraCosts')) || (currentLang === 'ar' ? 'تُحدد بالاتفاق بين الطرفين' : 'À convenir entre les parties');
+            const contractDuration = esc(getVal('contractDuration')) || (currentLang === 'ar' ? '12 شهراً قابلة للتجديد' : '12 mois renouvelables');
+            const signaturePlace = esc(getVal('signaturePlace')) || (currentLang === 'ar' ? 'الدار البيضاء' : 'Casablanca');
+
+            const isAr = currentLang === 'ar';
+
+            const title = isAr
+                ? 'عقد تقديم خدمات ومواكبة إدارية وتجارية'
+                : 'CONTRAT DE PRESTATION DE SERVICES ET D\'ACCOMPAGNEMENT ADMINISTRATIF ET COMMERCIAL';
+
+            const subtitle = isAr
+                ? 'CONTRAT DE PRESTATION DE SERVICES ET D\'ACCOMPAGNEMENT'
+                : 'عقد تقديم خدمات ومواكبة إدارية وتجارية';
+
+            // --- Helper for article titles ---
+            function artTitle(num, ar, fr) {
+                return isAr ? `المادة ${num}: ${ar}` : `Article ${num} : ${fr}`;
+            }
+
+            let html = '';
+
+            // Title
+            html += `<div class="contract-title">
+                <h2>${title}</h2>
+                <h3>${subtitle}</h3>
+            </div>
+            <div class="contract-divider"></div>`;
+
+            // Parties
+            html += `<div class="parties-section">
+                <div class="party">
+                    <strong>${isAr ? 'الطرف الأول (صاحب المشروع / Client):' : 'Première Partie (Client) :'}</strong>
+                    <p>${isAr ? 'الاسم الكامل' : 'Nom complet'} : ${clientName}</p>
+                    <p>${isAr ? 'رقم CIN / Passport' : 'N° CIN / Passeport'} : ${clientCIN}</p>
+                    <p>${isAr ? 'العنوان' : 'Adresse'} : ${clientAddress}</p>
+                </div>
+                <div class="party">
+                    <strong>${isAr ? 'الطرف الثاني (مقدم الخدمات / Prestataire):' : 'Deuxième Partie (Prestataire) :'}</strong>
+                    <p>${isAr ? 'الاسم الكامل' : 'Nom complet'} : ${providerName}</p>
+                    <p>${isAr ? 'رقم CIN' : 'N° CIN'} : ${providerCIN}</p>
+                    <p>${isAr ? 'العنوان' : 'Adresse'} : ${providerAddress}</p>
+                </div>
+                <div class="party">
+                    <strong>${isAr ? 'الشركة المعنية (Société):' : 'Société concernée :'}</strong>
+                    <p>${isAr ? 'الاسم التجاري' : 'Dénomination'} : ${companyName}</p>
+                    <p>${isAr ? 'الشكل القانوني' : 'Forme juridique'} : SARL AU</p>
+                    <p>${isAr ? 'مقر الشركة' : 'Siège social'} : ${companyAddress}</p>
+                    <p>${isAr ? 'النشاط الرئيسي' : 'Activité principale'} : ${companyMainActivity}</p>
+                    <p>${isAr ? 'الأنشطة الثانوية' : 'Activités secondaires'} : ${companySecondaryActivity}</p>
+                </div>
+            </div>`;
+
+            // Date & place
+            html += `<p style="text-align:center;font-weight:600;margin-bottom:18px;">
+                ${isAr ? 'حُرر بتاريخ' : 'Fait à'} ${signaturePlace} ، ${contractDate}
+            </p>`;
+
+            // --- Article 1 ---
+            html += `<div class="article">
+                <h4>${artTitle(1, 'موضوع العقد', 'Objet du contrat')}</h4>
+                <p>${isAr
+                    ? 'يهدف هذا العقد إلى تحديد شروط وأحكام تقديم خدمات المواكبة الإدارية والتجارية من قبل الطرف الثاني لفائدة الطرف الأول، وذلك في إطار تأسيس وتطوير شركة ' + companyName + ' (SARL AU).'
+                    : 'Le présent contrat a pour objet de définir les conditions et modalités selon lesquelles le Prestataire fournit au Client des services d\'accompagnement administratif et commercial, dans le cadre de la constitution et du développement de la société ' + companyName + ' (SARL AU).'}
+                </p>
+            </div>`;
+
+            // --- Article 2 ---
+            html += `<div class="article">
+                <h4>${artTitle(2, 'طبيعة الخدمات', 'Nature des services')}</h4>
+                <p>${isAr ? 'يلتزم مقدم الخدمات بتقديم الخدمات التالية:' : 'Le Prestataire s\'engage à fournir les services suivants :'}</p>
+                <ul>
+                    <li>${isAr ? 'إعداد ملف تأسيس الشركة.' : 'Préparation du dossier de constitution de la société.'}</li>
+                    <li>${isAr ? 'المساعدة في الإجراءات الإدارية.' : 'Assistance dans les démarches administratives.'}</li>
+                    <li>${isAr ? 'البحث عن الموردين والمصانع الدولية.' : 'Recherche de fournisseurs et usines internationales.'}</li>
+                    <li>${isAr ? 'دراسة فرص الاستيراد والتصدير.' : 'Étude des opportunités d\'importation et d\'exportation.'}</li>
+                    <li>${isAr ? 'إعداد عروض الأسعار التجارية.' : 'Préparation des offres de prix commerciales.'}</li>
+                    <li>${isAr ? 'البحث عن العملاء والأسواق.' : 'Recherche de clients et de marchés.'}</li>
+                    <li>${isAr ? 'تنظيم وثائق الاستيراد.' : 'Organisation des documents d\'importation.'}</li>
+                    <li>${isAr ? 'إعداد ومتابعة نظام المحاسبة الداخلي.' : 'Mise en place et suivi du système de comptabilité interne.'}</li>
+                    <li>${isAr ? 'إعداد تقارير مالية وتجارية.' : 'Préparation de rapports financiers et commerciaux.'}</li>
+                    <li>${isAr ? 'المساعدة في تطوير أنشطة الشركة.' : 'Assistance au développement des activités de la société.'}</li>
+                </ul>
+            </div>`;
+
+            // --- Article 3 ---
+            html += `<div class="article">
+                <h4>${artTitle(3, 'استقلالية مقدم الخدمات', 'Indépendance du Prestataire')}</h4>
+                <p>${isAr
+                    ? 'يقدم مقدم الخدمات خدماته بصفة مستقلة، ولا تربطه بالطرف الأول أي علاقة تبعية أو تابعية قانونية. لا يُعتبر هذا العقد عقد شغل، ولا يترتب عنه أي التزامات تتعلق بالضمان الاجتماعي أو التقاعد أو التعويض عن الفصل.'
+                    : 'Le Prestataire fournit ses services de manière indépendante, sans lien de subordination juridique avec le Client. Le présent contrat ne constitue pas un contrat de travail et n\'entraîne aucune obligation en matière de sécurité sociale, de retraite ou d\'indemnité de licenciement.'}
+                </p>
+            </div>`;
+
+            // --- Article 4 ---
+            html += `<div class="article">
+                <h4>${artTitle(4, 'ملكية الشركة والحصص الاجتماعية', 'Propriété de la société et parts sociales')}</h4>
+                <p>${isAr
+                    ? 'يُقر الطرفان بأن صاحب المشروع (الطرف الأول) هو المالك الوحيد لـ 100% من حصص الشركة (Associé Unique). مقدم الخدمات ليس شريكاً ولا مالكاً لأي حصة اجتماعية في الشركة، ولا يحق له المطالبة بأي حقوق تتعلق بالملكية أو الأرباح.'
+                    : 'Les parties reconnaissent que le Client (Première Partie) est le propriétaire unique de 100% des parts sociales de la société (Associé Unique). Le Prestataire n\'est ni associé ni propriétaire d\'aucune part sociale et ne peut prétendre à aucun droit de propriété ou de bénéfices.'}
+                </p>
+            </div>`;
+
+            // --- Article 5 ---
+            html += `<div class="article">
+                <h4>${artTitle(5, 'صفة المسير القانوني', 'Qualité de Gérant légal')}</h4>
+                <p>${isAr
+                    ? 'يُعين صاحب المشروع نفسه مسيراً قانونياً (Gérant) للشركة. مقدم الخدمات لا يتمتع بأي صفة تمثيلية للشركة، ولا يمكنه التوقيع باسمها أو التصرف في حساباتها إلا بموجب تفويض قانوني مكتوب ومحدد.'
+                    : 'Le Client se nomme lui-même Gérant légal de la société. Le Prestataire ne dispose d\'aucune qualité de représentation de la société et ne peut signer en son nom ou gérer ses comptes qu\'en vertu d\'une délégation légale écrite et limitée.'}
+                </p>
+            </div>`;
+
+            // --- Article 6 ---
+            html += `<div class="article">
+                <h4>${artTitle(6, 'المقابل المالي', 'Contrepartie financière')}</h4>
+                <p>${isAr
+                    ? 'يحق لمقدم الخدمات الحصول على المقابل المالي التالي:'
+                    : 'Le Prestataire a droit à la contrepartie financière suivante :'}
+                </p>
+                <ul>
+                    <li>${isAr ? 'نوع الأجر' : 'Type de rémunération'} : ${feeTypeLabel}</li>
+                    <li>${isAr ? 'المبلغ' : 'Montant'} : ${feeAmount} ${isAr ? 'درهم' : 'MAD'}</li>
+                    <li>${isAr ? 'طريقة الأداء' : 'Mode de paiement'} : ${paymentMethod}</li>
+                    <li>${isAr ? 'تاريخ الأداء' : 'Date de paiement'} : ${paymentDate}</li>
+                    <li>${isAr ? 'مصاريف التنقل والخدمات الإضافية' : 'Frais de déplacement et services supplémentaires'} : ${extraCosts}</li>
+                </ul>
+            </div>`;
+
+            // --- Article 7 ---
+            html += `<div class="article">
+                <h4>${artTitle(7, 'السرية وحماية المعلومات', 'Confidentialité et protection des informations')}</h4>
+                <p>${isAr
+                    ? 'يلتزم مقدم الخدمات بالحفاظ على السرية التامة لجميع المعلومات والوثائق والبيانات التي بحوزته بمناسبة تنفيذ هذا العقد، ويمتنع عن إفشائها للغير دون إذن كتابي مسبق من صاحب المشروع. يظل هذا الالتزام سارياً حتى بعد انتهاء العقد.'
+                    : 'Le Prestataire s\'engage à préserver la confidentialité absolue de toutes les informations, documents et données dont il a connaissance dans le cadre de l\'exécution du présent contrat, et s\'interdit de les divulguer à des tiers sans autorisation écrite préalable du Client. Cette obligation reste valable même après la fin du contrat.'}
+                </p>
+            </div>`;
+
+            // --- Article 8 ---
+            html += `<div class="article">
+                <h4>${artTitle(8, 'حقوق الملكية الفكرية للوثائق المنجزة', 'Propriété intellectuelle des documents réalisés')}</h4>
+                <p>${isAr
+                    ? 'جميع الوثائق والتقارير والملفات والمنتجات الفكرية التي ينجزها مقدم الخدمات في إطار هذا العقد تصبح ملكاً حصرياً لصاحب المشروع / الشركة، ما لم يُتفق كتابياً على خلاف ذلك.'
+                    : 'Tous les documents, rapports, fichiers et produits intellectuels réalisés par le Prestataire dans le cadre du présent contrat deviennent la propriété exclusive du Client / de la société, sauf accord écrit contraire.'}
+                </p>
+            </div>`;
+
+            // --- Article 9 ---
+            html += `<div class="article">
+                <h4>${artTitle(9, 'حدود الصلاحيات', 'Limites des pouvoirs')}</h4>
+                <p>${isAr
+                    ? 'لا يملك مقدم الخدمات أي سلطة لتمثيل الشركة أو إلزامها قانونياً إلا في حدود التفويض الكتابي الممنوح له. يُحظر عليه التصرف في أموال الشركة أو حساباتها البنكية أو إبرام التزامات مالية باسمها دون تفويض قانوني صريح.'
+                    : 'Le Prestataire ne dispose d\'aucun pouvoir pour représenter ou engager juridiquement la société, sauf dans les limites d\'une délégation écrite qui lui est accordée. Il lui est interdit de disposer des fonds ou comptes bancaires de la société ou de contracter des engagements financiers en son nom sans délégation légale explicite.'}
+                </p>
+            </div>`;
+
+            // --- Article 10 ---
+            html += `<div class="article">
+                <h4>${artTitle(10, 'المسؤولية القانونية لكل طرف', 'Responsabilité légale de chaque partie')}</h4>
+                <p>${isAr
+                    ? 'كل طرف مسؤول عن تنفيذ التزاماته بموجب هذا العقد. لا يتحمل مقدم الخدمات أي مسؤولية عن ديون الشركة أو التزاماتها المالية لمجرد تقديمه خدماته، ولا يضمن الحصول على تمويل أو أرباح أو صفقات تجارية.'
+                    : 'Chaque partie est responsable de l\'exécution de ses obligations au titre du présent contrat. Le Prestataire n\'assume aucune responsabilité pour les dettes ou engagements financiers de la société du seul fait de la fourniture de ses services, et ne garantit ni l\'obtention de financements, ni des bénéfices, ni des marchés commerciaux.'}
+                </p>
+            </div>`;
+
+            // --- Article 11 ---
+            html += `<div class="article">
+                <h4>${artTitle(11, 'مدة العقد وتجديده', 'Durée du contrat et renouvellement')}</h4>
+                <p>${isAr
+                    ? 'تكون مدة هذا العقد ' + contractDuration + '، ويجدد تلقائياً لمدد مماثلة ما لم يُخطر أحد الطرفين الآخر كتابياً برغبته في عدم التجديد قبل شهر واحد على الأقل من تاريخ الانتهاء.'
+                    : 'Le présent contrat est conclu pour une durée de ' + contractDuration + ' et sera renouvelé automatiquement pour des périodes identiques, sauf dénonciation par l\'une des parties notifiée par écrit à l\'autre partie au moins un mois avant la date d\'échéance.'}
+                </p>
+            </div>`;
+
+            // --- Article 12 ---
+            html += `<div class="article">
+                <h4>${artTitle(12, 'إنهاء العقد', 'Résiliation du contrat')}</h4>
+                <p>${isAr
+                    ? 'يمكن لأي من الطرفين إنهاء هذا العقد في حالة إخلال الطرف الآخر بالتزاماته، بعد إعذاره كتابياً وإعطائه مهلة معقولة لتصحيح الوضع. كما يمكن إنهاؤه بالاتفاق المتبادل أو في حالة القوة القاهرة.'
+                    : 'Chacune des parties peut résilier le présent contrat en cas de manquement de l\'autre partie à ses obligations, après mise en demeure écrite et octroi d\'un délai raisonnable pour remédier à la situation. Il peut également être résilié d\'un commun accord ou en cas de force majeure.'}
+                </p>
+            </div>`;
+
+            // --- Article 13 ---
+            html += `<div class="article">
+                <h4>${artTitle(13, 'تسوية النزاعات وفق القانون المغربي', 'Règlement des litiges selon le droit marocain')}</h4>
+                <p>${isAr
+                    ? 'يخضع هذا العقد للقانون المغربي. في حالة نشوء نزاع يتعلق بتفسير أو تنفيذ هذا العقد، يلتزم الطرفان بالبحث عن حل ودي. وفي حالة تعذر ذلك، تختص المحاكم المغربية المختصة بالنظر في النزاع.'
+                    : 'Le présent contrat est soumis au droit marocain. En cas de litige relatif à l\'interprétation ou à l\'exécution du présent contrat, les parties s\'engagent à rechercher une solution amiable. À défaut, les tribunaux marocains compétents seront seuls saisis.'}
+                </p>
+            </div>`;
+
+            // --- Article 14 ---
+            html += `<div class="article">
+                <h4>${artTitle(14, 'أحكام عامة', 'Dispositions générales')}</h4>
+                <p>${isAr
+                    ? 'يُعتبر هذا العقد كاملاً ويحل محل أي اتفاق سابق شفهي أو كتابي بين الطرفين. لا يُعتبر أي تعديل على هذا العقد صحيحاً إلا إذا كان مكتوباً وموقعاً من الطرفين. إذا تبين أن أي بند من بنود هذا العقد غير صالح أو غير قابل للتنفيذ، فلا يؤثر ذلك على صلاحية باقي البنود.'
+                    : 'Le présent contrat constitue l\'intégralité de l\'accord entre les parties et remplace tout accord antérieur, oral ou écrit. Aucune modification du présent contrat ne sera valable si elle n\'est pas écrite et signée par les deux parties. Si une clause du présent contrat s\'avérait nulle ou inapplicable, cela n\'affecterait pas la validité des autres clauses.'}
+                </p>
+            </div>`;
+
+            // --- Protection box ---
+            html += `<div class="highlight-box">
+                <strong>${isAr ? '🛡 الحماية القانونية:' : '🛡 Protection juridique :'}</strong>
+                <p style="margin-top:6px;font-size:0.86rem;">
+                    ${isAr
+                        ? 'يُقر الطرفان ويوافقان على أن صاحب المشروع هو Associé Unique وGérant، وأن مقدم الخدمات ليس شريكاً ولا مالكاً لحصص الشركة، ولا يتحمل ديونها، ولا يحق له التوقيع باسمها أو التصرف في حساباتها دون تفويض قانوني، ولا يضمن الحصول على تمويل أو أرباح أو صفقات. لا يجوز استعمال أموال الشركة في الحساب الشخصي لمقدم الخدمات. لا يسمح هذا العقد بإخفاء المستفيد الحقيقي أو تجاوز الالتزامات القانونية. وإذا كانت العلاقة الفعلية تتضمن تبعية وأجراً مقابل عمل مستمر، يجب مراعاة أحكام قانون الشغل وعدم الاكتفاء بتسمية العقد عقد خدمات.'
+                        : 'Les parties reconnaissent et acceptent que le Client est l\'Associé Unique et le Gérant, que le Prestataire n\'est ni associé ni propriétaire de parts sociales, ne supporte pas les dettes de la société, ne peut signer en son nom ou gérer ses comptes sans délégation légale, et ne garantit ni financement, ni bénéfices, ni marchés. Les fonds de la société ne peuvent être utilisés sur le compte personnel du Prestataire. Le présent contrat ne permet pas de dissimuler le bénéficiaire effectif ou de contourner les obligations légales. Si la relation réelle comporte un lien de subordination et une rémunération pour un travail continu, les dispositions du Code du Travail doivent être respectées et la qualification de contrat de services ne suffit pas.'}
+                </p>
+            </div>`;
+
+            // --- Signatures ---
+            html += `<div class="signatures">
+                <div class="sig-block">
+                    <div class="sig-label">${isAr ? 'توقيع الطرف الأول (صاحب المشروع / Client)' : 'Signature de la Première Partie (Client)'}</div>
+                    <div class="sig-line">${isAr ? 'التاريخ والتوقيع' : 'Date et signature'}</div>
+                </div>
+                <div class="sig-block">
+                    <div class="sig-label">${isAr ? 'توقيع الطرف الثاني (مقدم الخدمات / Prestataire)' : 'Signature de la Deuxième Partie (Prestataire)'}</div>
+                    <div class="sig-line">${isAr ? 'التاريخ والتوقيع' : 'Date et signature'}</div>
+                </div>
+            </div>`;
+
+            return html;
+        }
+
+        /* ============================================================
+           REBUILD ON LANGUAGE CHANGE
+           ============================================================ */
+        function rebuildContractForLang() {
+            if (!generatedContractHTML) return;
+            // Only rebuild if all required data still exists
+            const container = document.getElementById('contractContent');
+            // Save editable content? If user edited, we ask; but for simplicity, rebuild from data
+            if (isEditing) {
+                if (!confirm(currentLang === 'ar' ? 'سيتم إعادة بناء العقد باللغة المختارة. هل تريد المتابعة؟' : 'Le contrat sera reconstruit dans la langue choisie. Continuer ?')) {
+                    return;
+                }
+            }
+            generatedContractHTML = buildContractHTML();
+            container.innerHTML = generatedContractHTML;
+            container.setAttribute('contenteditable', 'false');
+            isEditing = false;
+        }
+
+        /* ============================================================
+           EDIT TOGGLE
+           ============================================================ */
+        function toggleEdit() {
+            const container = document.getElementById('contractContent');
+            if (!generatedContractHTML || container.querySelector('.empty-state')) {
+                showToast(currentLang === 'ar' ? '⚠ يجب توليد العقد أولاً' : '⚠ Veuillez d\'abord générer le contrat');
+                return;
+            }
+            isEditing = !isEditing;
+            container.setAttribute('contenteditable', isEditing ? 'true' : 'false');
+            if (isEditing) {
+                container.focus();
+                showToast(currentLang === 'ar' ? '✏ يمكنك الآن تعديل النص' : '✏ Vous pouvez maintenant modifier le texte');
+            } else {
+                // Capture edited HTML
+                generatedContractHTML = container.innerHTML;
+                showToast(currentLang === 'ar' ? '✅ تم حفظ التعديلات' : '✅ Modifications enregistrées');
+            }
+        }
+
+        /* ============================================================
+           PDF DOWNLOAD (via print dialog — user saves as PDF)
+           ============================================================ */
+        function downloadPDF() {
+            const container = document.getElementById('contractContent');
+            if (!generatedContractHTML || container.querySelector('.empty-state')) {
+                showToast(currentLang === 'ar' ? '⚠ يجب توليد العقد أولاً' : '⚠ Veuillez d\'abord générer le contrat');
+                return;
+            }
+            // Ensure not editing so print looks clean
+            if (isEditing) {
+                toggleEdit();
+            }
+            showToast(currentLang === 'ar' ? '📄 جارٍ تحضير PDF...' : '📄 Préparation du PDF...');
+            setTimeout(() => {
+                window.print();
+            }, 400);
+        }
+
+        /* ============================================================
+           PRINT A4
+           ============================================================ */
+        function printContract() {
+            const container = document.getElementById('contractContent');
+            if (!generatedContractHTML || container.querySelector('.empty-state')) {
+                showToast(currentLang === 'ar' ? '⚠ يجب توليد العقد أولاً' : '⚠ Veuillez d\'abord générer le contrat');
+                return;
+            }
+            if (isEditing) toggleEdit();
+            window.print();
+        }
+
+        /* ============================================================
+           DOWNLOAD HTML
+           ============================================================ */
+        function downloadHTML() {
+            const container = document.getElementById('contractContent');
+            if (!generatedContractHTML || container.querySelector('.empty-state')) {
+                showToast(currentLang === 'ar' ? '⚠ يجب توليد العقد أولاً' : '⚠ Veuillez d\'abord générer le contrat');
+                return;
+            }
+
+            const isAr = currentLang === 'ar';
+            const htmlContent = `<!DOCTYPE html>
+<html lang="${isAr ? 'ar' : 'fr'}" dir="${isAr ? 'rtl' : 'ltr'}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${isAr ? 'عقد تقديم خدمات' : 'Contrat de Prestation'}</title>
+<style>
+    body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; color: #0a1e3c; line-height: 1.9; padding: 40px; max-width: 900px; margin: auto; }
+    h2 { text-align: center; font-size: 1.3rem; }
+    h3 { text-align: center; color: #a8872e; font-size: 1rem; margin-bottom: 10px; }
+    .contract-divider { width: 80px; height: 4px; background: #c9a84c; margin: 14px auto 24px; }
+    .parties-section { background: #f8f6f1; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; }
+    .party { margin-bottom: 10px; }
+    .party strong { color: #0a1e3c; }
+    .article { margin-bottom: 18px; }
+    .article h4 { color: #0a1e3c; font-size: 0.98rem; border-right: 3px solid #c9a84c; padding: 6px 10px; background: rgba(201,168,76,0.1); border-radius: 0 6px 6px 0; }
+    .article p { font-size: 0.9rem; text-align: justify; padding-right: 13px; }
+    .article ul { padding-right: 30px; }
+    .highlight-box { background: rgba(201,168,76,0.12); border: 1px solid #c9a84c; border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 0.88rem; }
+    .signatures { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; padding-top: 20px; border-top: 2px dashed #e5e7eb; }
+    .sig-block { text-align: center; }
+    .sig-label { font-weight: 700; margin-bottom: 50px; }
+    .sig-line { border-top: 1.5px solid #0a1e3c; padding-top: 8px; font-size: 0.8rem; color: #6b7280; }
+    @media print { body { padding: 15mm 18mm; } @page { size: A4; margin: 0; } }
+</style>
+</head>
+<body>
+${container.innerHTML}
+</body>
+</html>`;
+
+            const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = isAr ? 'عقد_تقديم_خدمات.html' : 'contrat_prestation_services.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast(isAr ? '💾 تم تحميل HTML' : '💾 HTML téléchargé');
+        }
+
+        /* ============================================================
+           RESET FORM
+           ============================================================ */
+        function resetForm() {
+            if (!confirm(currentLang === 'ar' ? 'هل تريد مسح جميع البيانات؟' : 'Voulez-vous effacer toutes les données ?')) return;
+
+            document.querySelectorAll('input, textarea, select').forEach(el => {
+                if (el.type === 'date' || el.type === 'text' || el.tagName === 'TEXTAREA') {
+                    el.value = '';
+                }
+            });
+            document.getElementById('companyLegal').value = 'SARL AU';
+            document.getElementById('feeType').selectedIndex = 0;
+            document.getElementById('paymentMethod').selectedIndex = 0;
+
+            generatedContractHTML = '';
+            isEditing = false;
+            const container = document.getElementById('contractContent');
+            container.innerHTML = `<div class="empty-state">
+                <div class="icon">📝</div>
+                <p data-lang="ar">املأ بيانات النموذج ثم اضغط على "توليد العقد" لعرض المعاينة هنا.</p>
+                <p data-lang="fr" class="hidden">Remplissez le formulaire puis cliquez sur "Générer le contrat" pour afficher l'aperçu ici.</p>
+            </div>`;
+            container.setAttribute('contenteditable', 'false');
+
+            // Re-apply language visibility
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.toggle('hidden', el.getAttribute('data-lang') !== currentLang);
+            });
+
+            showToast(currentLang === 'ar' ? '🔄 تمت إعادة التعيين' : '🔄 Formulaire réinitialisé');
+        }
+
+        /* ============================================================
+           INIT
+           ============================================================ */
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set today's date
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('contractDate').value = today;
+            document.getElementById('paymentDate').value = today;
+
+            // Set initial language visibility
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.toggle('hidden', el.getAttribute('data-lang') !== 'ar');
+            });
+
+            // Keyboard shortcut Ctrl+Enter to generate
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    generateContract();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
